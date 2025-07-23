@@ -1,0 +1,14 @@
+{
+  "name": "sit725-2025-t2-prac2",
+  "version": "1.0.0",
+  "description": "This is an introductory session on using nodeJS and express.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Movini",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
