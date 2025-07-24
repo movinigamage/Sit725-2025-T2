@@ -1,0 +1,14 @@
+{
+  "name": "sit725-task-2.2p",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start":"node server.js"
+  },
+  "author": "Movini",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
