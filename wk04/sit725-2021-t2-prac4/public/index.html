@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT 725 Prac 3</title>
+    <meta name="description" content="basic template for SIT 725 Prac 3">
+    <meta name="author" content="SitePoint">
+    <meta property="og:title" content="SIT 725 Prac 3">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="basic template for SIT 725 Prac 3">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="pink lighten-1 z-depth-1">
+        <div class="nav-wrapper navbar-size">
+            <a href="#" class="brand-logo">
+                <img class="user-image-size" src="images/logo.png" />
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/movini/">LinkedIn</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="home">
+        <main class="main-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <h3 id="heading">Welcome to PawPal! Find Your Friend</h3>
+                        <p class="flow-text">
+                            PawPal connects loving homes with adorable kittens ready to be adopted.
+                            Browse, fall in love, and start the adoption journey.
+                        </p>
+                    </div>
+
+                    <div class="col s12 center-align">
+                        <img class="materialboxed materialboxed-image" src="images/hero-image.jpg">
+                    </div>
+
+                    <div class="col s12 center-align">
+                        <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton"
+                            data-target="modal1">
+                            <i class="material-icons left">auto_fix_high</i>Book
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row" id="card-section"></div>
+            </div>
+        </main>
+
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h5>Confirm Your attendance</h5>
+                <div id="attendanceFormWrapper">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="e.g., Alex" id="first_name" type="text" class="validate" required>
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate" required>
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="tel" id="phone" name="phone">
+                                <label for="phone">Phone</label>
+                            </div>
+                        </div>
+                        <div class="center-align">
+                            <button type="button" class="btn" id="formSubmit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section id="about" class="section white">
+        <div class="container">
+            <h5 class="pink-text text-darken-2 center-align">Our Mission</h5>
+            <p class="flow-text center-align">
+                PawPal was created to help every kitten find a forever home.
+                We work with local shelters and foster networks to bring visibility to pets in need of love and care.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="section pink lighten-5">
+        <div class="container" id="contactFormWrapper">
+            <h5 class="pink-text text-darken-2 center-align">Contact</h5>
+            <p class="center-align">Want to foster, adopt, or ask a question? We’d love to hear from you!</p>
+            <form id="contactForm" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="contact_name" type="text" class="validate" required>
+                        <label for="contact_name">Your Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="contact_email" type="email" class="validate" required>
+                        <label for="contact_email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="contact_message" class="materialize-textarea" required></textarea>
+                        <label for="contact_message">Your Message</label>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <button class="btn pink lighten-1 waves-effect waves-light" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="adoptModal" class="modal">
+        <div class="modal-content" id="adoptFormWrapper">
+            <h5>Adopt <span id="catNameInline"></span></h5>
+            <form id="adoptForm">
+                <div class="input-field">
+                    <input id="adopt_name" type="text" required>
+                    <label for="adopt_name">Your Name</label>
+                </div>
+                <div class="input-field">
+                    <input id="adopt_email" type="email" required>
+                    <label for="adopt_email">Your Email</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="adopt_reason" class="materialize-textarea" required></textarea>
+                    <label for="adopt_reason">Why do you want to adopt?</label>
+                </div>
+                <div class="center-align">
+                    <button type="button" class="btn" id="adoptSubmit">Submit</button>
+                </div>
+                <span id="catName" style="display:none;"></span>
+            </form>
+        </div>
+    </div>
+
+    <footer class="page-footer pink lighten-1">
+        <div class="container center-align">
+            <h5 class="white-text">PawPal © 2025</h5>
+            <p class="grey-text text-lighten-4">Helping kittens find homes, one paw at a time.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
