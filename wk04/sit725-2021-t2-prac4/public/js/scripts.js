@@ -4,11 +4,16 @@ const clickMe = () => {
 };
 
 const submitForm = () => {
-    let formData = {
-        first_name: $('#first_name').val(),
-        last_name: $('#last_name').val(),
-        email: $('#email').val()
+    const firstName = $('#first_name').val().trim();
+    const lastName = $('#last_name').val().trim();
+    const email = $('#email').val().trim();
+
+    const formData = {
+        first_name: firstName,
+        last_name: lastName,
+        email: email
     };
+
     console.log("Form Data Submitted: ", formData);
 
     $('#attendanceFormWrapper').html(`
@@ -19,13 +24,15 @@ const submitForm = () => {
     `);
 };
 
+
 const submitAdoptForm = () => {
-    let adoptData = {
-        name: $('#adopt_name').val(),
-        email: $('#adopt_email').val(),
-        reason: $('#adopt_reason').val(),
-        cat: $('#catName').text()
-    };
+
+    const name = $('#adopt_name').val().trim();
+    const email = $('#adopt_email').val().trim();
+    const reason = $('#adopt_reason').val().trim();
+    const cat = $('#catName').text().trim();
+
+    const adoptData = { name, email, reason, cat };
     console.log("Adopt Form Submitted: ", adoptData);
 
     $('#adoptFormWrapper').html(`
@@ -37,12 +44,12 @@ const submitAdoptForm = () => {
 };
 
 
-const submitContactForm = (event) => {
-    event.preventDefault();
 
-    const name = $('#contact_name').val();
-    const email = $('#contact_email').val();
-    const message = $('#contact_message').val();
+const submitContactForm = (event) => {
+    const name = $('#contact_name').val().trim();
+    const email = $('#contact_email').val().trim();
+    const message = $('#contact_message').val().trim();
+
 
     const contactData = { name, email, message };
     console.log("Contact Form Submitted:", contactData);
@@ -88,15 +95,28 @@ const addCards = (items) => {
     });
 };
 
+
 $(document).ready(function () {
     $('.materialboxed').materialbox();
     $('.modal').modal();
-    $('#formSubmit').click(() => submitForm());
-    $('#adoptSubmit').click(() => submitAdoptForm());
-    $('#contactForm').submit(submitContactForm);
 
-  //  addCards(cardList);
+    // 🛠 Correct event bindings
+    $('#attendanceForm').submit(function (event) {
+        event.preventDefault();
+        submitForm();
+    });
 
+    $('#adoptForm').submit(function (event) {
+        event.preventDefault();
+        submitAdoptForm();
+    });
+
+    $('#contactForm').submit(function (event) {
+        event.preventDefault();
+        submitContactForm();
+    });
+
+    // Load cards from DB
     $.get("/api/projects", (res) => {
         if (res.statusCode === 200) {
             addCards(res.data);
@@ -105,7 +125,7 @@ $(document).ready(function () {
         }
     });
 
-
+    // Cat modal name binding
     $(document).on('click', '.adopt-link', function () {
         const catName = $(this).data('cat');
         $('#catName').text(catName);

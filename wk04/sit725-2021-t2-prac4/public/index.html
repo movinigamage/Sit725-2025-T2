@@ -63,7 +63,7 @@
             <div class="modal-content">
                 <h5>Confirm Your attendance</h5>
                 <div id="attendanceFormWrapper">
-                    <form class="col s12">
+                    <form id="attendanceForm" class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input placeholder="e.g., Alex" id="first_name" type="text" class="validate" required>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="center-align">
-                            <button type="button" class="btn" id="formSubmit">Submit</button>
+                            <button type="submit" class="btn" id="formSubmit">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -152,10 +152,11 @@
                     <label for="adopt_reason">Why do you want to adopt?</label>
                 </div>
                 <div class="center-align">
-                    <button type="button" class="btn" id="adoptSubmit">Submit</button>
+                    <button type="submit" class="btn" id="adoptSubmit">Submit</button>
                 </div>
                 <span id="catName" style="display:none;"></span>
             </form>
+            <div id="adoptMessage" style="display: none;"></div>
         </div>
     </div>
 
